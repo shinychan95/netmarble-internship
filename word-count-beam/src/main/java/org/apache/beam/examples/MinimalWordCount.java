@@ -64,7 +64,7 @@ public class MinimalWordCount {
     // will run with the DirectRunner by default, based on the class path configured
     // in its dependencies.
     PipelineOptions options = PipelineOptionsFactory.create();
-
+    System.out.println(options);
     // In order to run your pipeline, you need to make following runner specific changes:
     //
     // CHANGE 1/3: Select a Beam runner, such as BlockingDataflowRunner
@@ -83,6 +83,7 @@ public class MinimalWordCount {
     // Create the Pipeline object with the options we defined above
     Pipeline p = Pipeline.create(options);
 
+    System.out.println(options);
     // Concept #1: Apply a root transform to the pipeline; in this case, TextIO.Read to read a set
     // of input text files. TextIO.Read returns a PCollection where each element is one line from
     // the input text (a set of Shakespeare's texts).
