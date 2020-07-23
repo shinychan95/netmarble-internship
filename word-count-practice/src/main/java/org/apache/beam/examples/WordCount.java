@@ -34,7 +34,7 @@ public class WordCount {
 
             // 나중에 Common 그룹에 Utils 내에 정규식 등을 정의한다.
             String[] words = element.split("[^\\p{L}]+", -1);
-            
+
             for (String word : words){
                 if (!word.isEmpty()) {
                     receiver.output(word);
@@ -77,7 +77,7 @@ public class WordCount {
         @Default.String("gs://apache-beam-samples/shakespeare/kinglear.txt")
         String getInputFile();
 
-        void setInputFile(String value);
+        void setInputFile(String value); // = public abstract void 추상메소드명
 
         /** Set this required option to specify where to write the output. */
         @Description("Path of the file to write to")
