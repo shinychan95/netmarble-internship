@@ -129,6 +129,8 @@ public class DebuggingWordCount {
     @Default.String("Flourish|stomach")
     String getFilterPattern();
 
+
+
     void setFilterPattern(String value);
   }
 

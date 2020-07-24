@@ -1,11 +1,10 @@
 package org.apache.beam.examples;
 
 
+import afu.org.checkerframework.checker.nullness.qual.Nullable;
 import org.apache.beam.sdk.Pipeline;
 import org.apache.beam.sdk.io.TextIO;
-import org.apache.beam.sdk.metrics.Counter;
-import org.apache.beam.sdk.metrics.Distribution;
-import org.apache.beam.sdk.metrics.Metrics;
+import org.apache.beam.sdk.metrics.*;
 import org.apache.beam.sdk.options.*;
 import org.apache.beam.sdk.transforms.*;
 import org.apache.beam.sdk.values.KV;
@@ -76,15 +75,18 @@ public class WordCount {
         @Description("Path of the file to read from")
         @Default.String("gs://apache-beam-samples/shakespeare/kinglear.txt")
         String getInputFile();
-
         void setInputFile(String value); // = public abstract void 추상메소드명
 
         /** Set this required option to specify where to write the output. */
         @Description("Path of the file to write to")
         @Default.String("./word-count-practice/") // 이 부분 왜인지는 모르겠지만, "./"으로 하면 프로젝트 상위 폴더에 저장된다.
         String getOutput();                       // Default 값을 이렇게 넣는 것도 Custom Annotation
-
         void setOutput(String value);
+
+        @Description("My custom command line argument.")
+        @Default.String("DEFAULT")
+        String getMyCustomOption();
+        void setMyCustomOption(String myCustomOption);
     }
 
     static void runWordCount(WordCountOptions options) {
@@ -96,6 +98,7 @@ public class WordCount {
                 .apply("WriteCounts", TextIO.write().to(options.getOutput()));
 
         p.run().waitUntilFinish();
+
     }
 
     public static void main(String[] args) {

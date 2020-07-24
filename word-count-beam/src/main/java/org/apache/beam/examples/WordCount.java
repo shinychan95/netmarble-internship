@@ -158,14 +158,14 @@ public class WordCount {
      * this option to choose a different input file or glob.
      */
     @Description("Path of the file to read from")
-    @Default.String("gs://apache-beam-samples/shakespeare/kinglear.txt")
+      @Default.String("gs://apache-beam-samples/shakespeare/kinglear.txt")
     String getInputFile();
 
     void setInputFile(String value);
 
     /** Set this required option to specify where to write the output. */
     @Description("Path of the file to write to")
-    @Required
+    @Default.String("./word-count-practice/")
     String getOutput();
 
     void setOutput(String value);
