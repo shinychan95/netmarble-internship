@@ -70,7 +70,7 @@
     <protobuf-util.version>3.11.1</protobuf-util.version>
     <protobuf.version>3.11.1</protobuf.version>
     <findbugs.version>3.0.1</findbugs.version>
-    <guava.version>26.0-jre</guava.version>
+    <guava.version>29.0-jre</guava.version>
     <json.version>20160810</json.version>
     <junit.jupiter.version>5.5.2</junit.jupiter.version>
     <gson.version>2.7</gson.version>
